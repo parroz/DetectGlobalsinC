@@ -8,6 +8,8 @@ The purpose of `detect_globals` is to assist in code analysis by identifying glo
 
 The program specifically focuses on global variables and ignores local variables, function parameters, and variables defined in system libraries. It aims to provide a simple and efficient way to extract global variable information from C source files.
 
+The program ignores global variables with the qualifyer `const`.
+
 ## Compilation
 
 To compile the `detect_globals` program, ensure that you have the Clang compiler installed on your system. The program uses the libclang library, which is typically bundled with Clang.
@@ -25,7 +27,7 @@ The program accepts one or more C source files as command-line arguments. It ana
 To use the program, run the following command:
 
 ```bash
-./detect_globals file1.c file2.c ...
+./detect_globals [-i /path/to/ignore1:/path/to/ignore2] file1.c file2.c
 ```
 
 Replace file1.c, file2.c, etc., with the paths to the C source files you want to analyze. You can also use wildcard patterns to specify multiple files, such as *.c to analyze all C files in the current directory.
